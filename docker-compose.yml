@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  mysql:
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootpasswd
+      - MYSQL_DATABASE=webmail
+    volumes:
+      - mysql:/var/lib/mysql
+
+volumes:
+  mysql:
