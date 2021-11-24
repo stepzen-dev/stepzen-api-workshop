@@ -1,0 +1,4 @@
+configurationset:
+  - configuration:
+      name: mysql_config
+      dsn: stepzen:stepzenpasswd@tcp(0.tcp.ngrok.io:14265)/stepzen-demo
