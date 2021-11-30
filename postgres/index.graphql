@@ -1,16 +1,3 @@
-type Book {
-  id: ID!
-  name: String!
-  originalPublishingDate: Date!
-  authorID: ID!
-  author: Author
-    @materializer(
-      query: "author"
-      arguments: [{ name: "id", field: "authorID" }]
-    )
-  isbn: String
-}
-
 type Author {
   id: ID!
   name: String!
@@ -18,14 +5,6 @@ type Author {
 }
 
 type Query {
-  book(id: ID!): Book
-    @dbquery(type: "postgresql", table: "books", configuration: "postgresql_config")
-  books: [Book]
-    @dbquery(
-      type: "postgresql"
-      table: "books"
-      configuration: "postgresql_config"
-    )
   author(id: ID!): Author
     @dbquery(type: "postgresql", table: "authors", configuration: "postgresql_config")
   authors(isPseudonym: Boolean!): [Author]
