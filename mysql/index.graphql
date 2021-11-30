@@ -8,6 +8,7 @@ type Book {
       query: "author"
       arguments: [{ name: "id", field: "authorID" }]
     )
+  isbn: String
 }
 
 type Author {
@@ -19,10 +20,10 @@ type Author {
 type Query {
   book(id: ID!): Book
     @dbquery(type: "mysql", table: "books", configuration: "mysql_config")
-  books(originalPublishingDate: Date!): [Book]
+  books: [Book]
     @dbquery(
       type: "mysql"
-      query: "SELECT * FROM books WHERE ? >= DATE '1900-00-00'"
+      table: "books"
       configuration: "mysql_config"
     )
   author(id: ID!): Author
