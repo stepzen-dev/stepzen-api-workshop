@@ -3,11 +3,6 @@ type Book {
   name: String!
   originalPublishingDate: Date!
   authorID: ID!
-  author: Author
-    @materializer(
-      query: "author"
-      arguments: [{ name: "id", field: "authorID" }]
-    )
   isbn: String
 }
 
