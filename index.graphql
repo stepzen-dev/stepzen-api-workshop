@@ -1,3 +1,4 @@
+# For MySQL
 # schema @sdl(files: ["mysql/index.graphql", "googleBooks.graphql", "collections.graphql"]) {
 #   query: Query
 # }
