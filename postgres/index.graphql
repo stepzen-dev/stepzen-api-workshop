@@ -14,19 +14,19 @@ type Author {
 
 type Query {
   book(id: ID!): Book
-    @dbquery(type: "mysql", table: "books", configuration: "mysql_config")
+    @dbquery(type: "postgresql", table: "books", configuration: "postgresql_config")
   books: [Book]
     @dbquery(
-      type: "mysql"
+      type: "postgresql"
       table: "books"
-      configuration: "mysql_config"
+      configuration: "postgresql_config"
     )
   author(id: ID!): Author
-    @dbquery(type: "mysql", table: "authors", configuration: "mysql_config")
+    @dbquery(type: "postgresql", table: "authors", configuration: "postgresql_config")
   authors(isPseudonym: Boolean!): [Author]
     @dbquery(
-      type: "mysql"
+      type: "postgresql"
       query: "SELECT * FROM authors WHERE isPseudonym = ?"
-      configuration: "mysql_config"
+      configuration: "postgresql_config"
     )
 }
