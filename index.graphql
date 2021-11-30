@@ -1,3 +1,3 @@
-schema @sdl(files: ["mysql/index.graphql", "googleBooks.graphql", "collections.graphql"]) {
+schema @sdl(files: []) {
   query: Query
 }
