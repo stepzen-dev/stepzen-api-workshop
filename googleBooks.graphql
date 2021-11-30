@@ -1,26 +1,14 @@
-type ImageLinks {
+type GoogleBook {
+  title: String
+  description: String
   thumbnail: String
 }
 
-type VolumeInfo {
-  title: String
-  description: String
-  imageLinks: ImageLinks
-}
-
-type GoogleBook {
-  id: ID!
-  volumeInfo: VolumeInfo
-  selfLink: String
-}
-
-type GoogleBookResult {
-  items: [GoogleBook]
-}
-
 type Query {
-  googleBooks(isbn: String!): GoogleBookResult
+  googleBooks(isbn: String!): [GoogleBook]
     @rest(
       endpoint: "https://www.googleapis.com/books/v1/volumes?q=isbn:$isbn&country=US"
+      resultroot: "items[].volumeInfo"
+      setters: [{ field: "thumbnail", path: "imageLinks.thumbnail" }]
     )
 }
