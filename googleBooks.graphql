@@ -1,0 +1,26 @@
+type ImageLinks {
+  thumbnail: String
+}
+
+type VolumeInfo {
+  title: String
+  description: String
+  imageLinks: ImageLinks
+}
+
+type GoogleBook {
+  id: ID!
+  volumeInfo: VolumeInfo
+  selfLink: String
+}
+
+type GoogleBookResult {
+  items: [GoogleBook]
+}
+
+type Query {
+  googleBooks(isbn: String!): GoogleBookResult
+    @rest(
+      endpoint: "https://www.googleapis.com/books/v1/volumes?q=isbn:$isbn&country=US"
+    )
+}
