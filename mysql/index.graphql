@@ -11,27 +11,9 @@ type Book {
   isbn: String
 }
 
-type Author {
-  id: ID!
-  name: String!
-  isPseudonym: Boolean!
-}
-
 type Query {
   book(id: ID!): Book
     @dbquery(type: "mysql", table: "books", configuration: "mysql_config")
   books: [Book]
-    @dbquery(
-      type: "mysql"
-      table: "books"
-      configuration: "mysql_config"
-    )
-  author(id: ID!): Author
-    @dbquery(type: "mysql", table: "authors", configuration: "mysql_config")
-  authors(isPseudonym: Boolean!): [Author]
-    @dbquery(
-      type: "mysql"
-      query: "SELECT * FROM authors WHERE isPseudonym = ?"
-      configuration: "mysql_config"
-    )
+    @dbquery(type: "mysql", table: "books", configuration: "mysql_config")
 }

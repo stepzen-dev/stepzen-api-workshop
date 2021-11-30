@@ -1,16 +1,11 @@
-# schema @sdl(files: ["mysql/index.graphql", "googleBooks.graphql", "collections.graphql"]) {
-#   query: Query
-# }
-
-# For Postgres
-# schema @sdl(files: ["postgres/index.graphql", "googleBooks.graphql", "collections.graphql"]) {
-#   query: Query
-# }
-
-# For REST
 schema
   @sdl(
-    files: ["rest/index.graphql", "googleBooks.graphql", "collections.graphql"]
+    files: [
+      "mysql/index.graphql"
+      "rest/index.graphql"
+      "googleBooks.graphql"
+      "collections.graphql"
+    ]
   ) {
   query: Query
 }
