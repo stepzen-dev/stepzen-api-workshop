@@ -1,14 +1,3 @@
-# For MySQL
-# schema @sdl(files: ["mysql/index.graphql"]) {
-#   query: Query
-# }
-
-# For Postgres
-# schema @sdl(files: ["postgres/index.graphql"]) {
-#   query: Query
-# }
-
-# For REST
-schema @sdl(files: ["rest/index.graphql"]) {
+schema @sdl(files: ["mysql/mysql.graphql"]) {
   query: Query
 }
