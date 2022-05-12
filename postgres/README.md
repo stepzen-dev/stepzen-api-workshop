@@ -1,5 +1,21 @@
 # Setting up Postgres
 
+## Run a database in the cloud
+
+The easiest way to try out this example is by running a database in the cloud.
+
+If you don't have a database running in the cloud yet, you can try our read-only mocked PostgreSQL database:
+
+<details>
+	<summary>Click to show credentials!</summary>
+
+- host: `postgresql.introspection.stepzen.net`
+- database: `introspection`
+- username: `testUserIntrospection`
+- password: `HurricaneStartingSample1934`
+
+</details>
+
 ## Creating a local database
 
 The best way to run this Postgres Database is by using our Docker. This requires you to have Docker installed (no prior knowledge needed) and using ngrok to create a TCP tunnel so you can link it to StepZen.
@@ -43,8 +59,3 @@ configurationset:
       name: postgresql_config
       uri: postgresql://stepzen:stepzenpasswd@0.tcp.ngrok.io:15650/stepzen_demo
 ```
-
-
-## Create a database in the cloud
-
-Alternatively you can create a Postgres database in the cloud, for this you can choose from a whole range of cloud providers
