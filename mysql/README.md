@@ -51,11 +51,4 @@ ngrok tcp 3306
 
 Ngrok will return the forwarding address for the local MySQL database, which will looks something like this: `tcp://0.tcp.ngrok.io:15650`.
 
-You need to add this to the file `./config.yaml` where you need to replace `NGROK_TUNNEL` with (in example) `0.tcp.ngrok.io:15650`:
-
-```yaml
-configurationset:
-  - configuration:
-      name: mysql_config
-      dsn: stepzen:stepzenpasswd@tcp(0.tcp.ngrok.io:15650)/stepzen_demo
-```
+You need to add use this address (without `tcp://`) as the host when running `stepzen import mysql`. Together with the credentials in `docker-compose.yml`.

@@ -1,7 +1,0 @@
-configurationset:
-  - configuration:
-      name: mysql_config
-      dsn: stepzen:stepzenpasswd@tcp(NGROK_TUNNEL)/stepzen_demo
-  - configuration:
-      name: postgresql_config
-      uri: postgresql://stepzen:stepzenpasswd@NGROK_TUNNEL/stepzen_demo

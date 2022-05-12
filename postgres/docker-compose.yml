@@ -6,9 +6,9 @@ services:
     ports:
       - 5432:5432
     environment:
-      - POSTGRES_USER=root
-      - POSTGRES_PASSWORD=rootpasswd
-      - POSTGRES_DB=stepzen_demo
+      - POSTGRES_USER=testUserIntrospection
+      - POSTGRES_PASSWORD=HurricaneStartingSample1934
+      - POSTGRES_DB=introspection
     volumes:
       - postgres:/var/lib/postgresql
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
