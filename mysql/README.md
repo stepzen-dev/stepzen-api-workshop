@@ -43,6 +43,8 @@ docker-compose up -d
 
 This will start the container with the MySQL server, makes it available on port `3306` and prepopulates it with the data from `./mysql/init.sql`.
 
+### Using with cloud
+
 To make this database available to other services outside your private network, you need to create a TCP tunnel. For this ngrok will be used:
 
 ```bash

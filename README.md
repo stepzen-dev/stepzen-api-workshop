@@ -27,6 +27,8 @@ If you want to start building a GraphQL on a [MySQL](./mysql/README.md) or [Post
 
     Use the StepZen CLI to introspect the database and generate a GraphQL schema for it. You can start this GraphQL API using `stepzen start`.
 
+    > IMPORTANT: Do not select the option to create relation types. We will take this steps manually to understand better how it works.
+
     <details>
     <summary>Solution:</summary>
 
@@ -152,30 +154,37 @@ type Order {
 
 </details>
 
-5.  Let's connect another data source to the data you've explored in the first questions. In this workshop, you've worked with one of the prepopulated data sources given to you. But you can also combine them. For example, get the type `Order` from MySQL and the type `Customer` from REST.
+5.  Let's connect another data source to the data you've explored in the first questions. In this workshop, you've worked with one of the prepopulated data sources given to you. But you can also combine them. For example, extend the data in the database with data from a REST API.
 
-You can get the customer information from the REST API endpoint: [https://introspection.apis.stepzen.com/customers/1](https://introspection.apis.stepzen.com/customers/1).
+You can get the book meta data information from the Google Books REST API endpoint: [https://developers.google.com/books/docs/v1/getting_started](https://developers.google.com/books/docs/v1/getting_started)).
+
+Tip: To get a book by its ISBN, you can use the following endpoint: `https://www.googleapis.com/books/v1/volumes?q=isbn:9780385513753`.
 
 Tip: Types cannot be duplicated. If you (in example) want to combine MySQL with REST, you need to make sure that these are deleted from the other `.graphql` file they are present.
 
 <details>
 <summary>Solution:</summary>
 
-You can find the complete and working solution in the branch [ex-5](https://github.com/stepzen-dev/stepzen-api-workshop/tree/ex-5).
-
-Import a MySQL or PostgreSQL database, or use the REST endpoint to change the data source for the `getCustomerById` query. If you've used a database before, you can import a REST API endpoint using:
-
-```bash
-stepzen import curl 'https://introspection.apis.stepzen.com/customers/1' --path-params '/customers/$id'
 ```
+stepzen import curl https://www.googleapis.com/books/v1/volumes?q=isbn:9780385513753
+```
+
+And connect to products using `@materializer`
 
 </details>
 
-**BONUS**
 
-You can use StepZen to combine popular third-party SaaS APIs in your GraphQL API with [StepZen GraphQL Studio](https://graphql.stepzen.com/). Using this interactive environment, you can select several APIs such as Twitter, Contentful, and Slack. For this second bonus, question select one or more APIs from StepZen GraphQL Studio and add them to the schema of the GraphQL API you created in this chapter.
+6. Let's add pagination for the queries to get a list of products.
 
-![StepZen GraphQL Studio](https://stepzen.com/images/blog/studio-announce-explore-studio.png)
+For MySQL: [pagination](https://stepzen.com/docs/quick-start/with-database-mysql#paginate-responses)
+For PostgreSQL [pagination](https://stepzen.com/docs/quick-start/with-database-postgresql#paginate-responses)
+
+<details>
+<summary>Solution:</summary>
+
+
+</details>
+
 
 ### Support
 
